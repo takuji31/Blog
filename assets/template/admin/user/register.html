@@ -1,0 +1,26 @@
+:cascade layout;
+:around content -> {
+    <div class="row">
+      <div class="column grid-16">
+        <h2>ユーザー登録</h2>
+        <p>
+            このWebサイトへのユーザー登録ができます。
+        </p>
+        <p>
+            ギルドメンバーがメンバーリストへ登録するにはユーザー登録が必須です。<br />
+            登録を行わない場合は閲覧しか行えません。
+        </p>
+        :block form | fillinform($req) -> {
+        <form action="" method="post">
+          <fieldset>
+              <legend>あなたについて</legend>
+            <label for="nick_name">ニックネーム</label>
+            <input type="text" id="nick_name" name="nick_name" />
+            :error("nick_name")
+          </fieldset>
+            :character_form("メインキャラについて","登録")
+        : }
+      </div>
+    </div>
+:}
+
